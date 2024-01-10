@@ -32,54 +32,16 @@ for ($i = 0; $i -lt $grid.length; $i++) {
                 $number = $number+"$([int]$grid[$i][$j+$k])"
                 $k++
             }
-            $i = $i+$k-1
+           
             $number = [int]$number
             write-host "number is $number"
             #check if the number is valid
             #it is valid if there is a symbol on any side of it, up, down, left or right or diagonally, make sure that edges of the grid are handled correctly
             $valid = $false
-            if ($i -gt 0) {
-                if ($grid[$i-1][$j] -in $symbols) {
-                    $valid = $true
-                }
-            }
-            if ($i -lt $grid.length-1) {
-                if ($grid[$i+1][$j] -in $symbols) {
-                    $valid = $true
-                }
-            }
-            if ($j -gt 0) {
-                if ($grid[$i][$j-1] -in $symbols) {
-                    $valid = $true
-                }
-            }
-            if ($j -lt $grid[$i].length-1) {
-                if ($grid[$i][$j+1] -in $symbols) {
-                    $valid = $true
-                }
-            }
-            if ($i -gt 0 -and $j -gt 0) {
-                if ($grid[$i-1][$j-1] -in $symbols) {
-                    $valid = $true
-                }
-            }
-            if ($i -gt 0 -and $j -lt $grid[$i].length-1) {
-                if ($grid[$i-1][$j+1] -in $symbols) {
-                    $valid = $true
-                }
-            }
-            if ($i -lt $grid.length-1 -and $j -gt 0) {
-                if ($grid[$i+1][$j-1] -in $symbols) {
-                    $valid = $true
-                }
-            }
-            if ($i -lt $grid.length-1 -and $j -lt $grid[$i].length-1) {
-                if ($grid[$i+1][$j+1] -in $symbols) {
-                    $valid = $true
-                }
-            }
+           
 
             if ($valid) {
+                write-host "number is valid"
                 $numbers += $number
                 
             }
@@ -89,3 +51,4 @@ for ($i = 0; $i -lt $grid.length; $i++) {
         }
     }
 }
+
